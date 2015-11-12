@@ -55,9 +55,12 @@
 项目内使用 `Clang Format` 来约束 C/C++/Objective-C 编码风格
 
 Clang Format 配置步骤(Xcode)：  
-    1. Xcode 安装 `ClangFormat-Xcode` 插件(https://github.com/travisjeffery/ClangFormat-Xcode)
-    2. 配置快捷键，`Xcode -> Edit -> Format Code`，勾选使用`File`使用根目录下的`.clang-format`作为约束文件，勾选`Enable Format on Save`
-    3. 将本文档同目录下的`.clang-format`文件放入新建工程的根目录下，命名为`.clang-format`
+    1. Xcode 安装 `ClangFormat-Xcode` 插件(https://github.com/travisjeffery/ClangFormat-Xcode)  
+    
+    2. 配置快捷键，`Xcode -> Edit -> Format Code`，勾选使用`File`使用根目录下的`.clang-format`作为约束文件，勾选`Enable Format on Save`  
+    
+    3. 将本文档同目录下的`.clang-format`文件放入新建工程的根目录下，命名为`.clang-format`  
+    
     4. 后续在 Xcode 保存该工程的代码文件时，会自动根据`.clang-format`来规范代码格式
 
 **排序**  
