@@ -42,40 +42,6 @@
         - [storyboard 使用](#-storyboard-使用)
   
 2. [模块设计](#2-模块设计)
-    - [工程结构](#-工程结构)
-    - [设计模式](#-设计模式)
-        - [MVVM & MVC](#-MVVM-&-MVC)
-        - [delegate, block, KVO, NSNotification](#-delegate,-block,-KVO,-NSNotification)
-        - [模块化 & URL Route](#-模块化-&-URL-Route)Class&Protocol)](#命名类和协议(class&protocol))
-        - [命名头文件(Headers)](#命名头文件(headers))
-        - [命名方法(Methods)](#命名方法(methods))
-        - [存取方法(Accessor Methods)](#存取方法(accessor-methods))
-        - [命名委托(Delegate)](#命名委托(delegate))
-        - [集合操作类方法(Collection Methods)](#集合操作类方法(collection-methods))
-        - [命名函数(Functions)](#命名函数(functions))
-        - [命名属性和实例变量(Properties & Instance Variables)](#命名属性和实例变量(properties-&-instance-variables))
-        - [命名常量(Constants)](#命名常量(constants))
-        - [命名通知(Notifications)](#命名通知(Notifications))
-    - [注释](#注释)
-        - [文件注释](#文件注释)
-        - [方法注释](#方法注释)
-        - [代码注释](#代码注释)
-    - [编码风格](#编码风格)
-        - [不要使用new方法](#不要使用new方法)
-        - [Public API 要尽量简洁](#Public-API-要尽量简洁)
-        - [头文件引用](#头文件引用)
-        - [BOOL的使用](#BOOL的使用)
-        - [nil检查](#nil检查)
-        - [点分语法的使用](#点分语法的使用)
-        - [delegate要使用弱引用](#delegate要使用弱引用)
-        - [使用 Literals](#使用-Literals)
-        - [Switch Case](#Switch Case)
-        - [?: 操作符](#?:-操作符)
-        - [CGRect 方法](#CGRect-方法)
-        - [Golden Path](#Golden-Path)
-        - [处理 NSError](#处理-NSError)
-        - [storyboard 使用](#storyboard-使用)
-2. [模块设计](#2-模块设计)
     - [工程结构](#工程结构)
     - [设计模式](#设计模式)
         - [MVVM & MVC](#MVVM-&-MVC)
@@ -84,6 +50,7 @@
 
 
 ## 1. Objective-C 编码规范及原则
+
 ### 代码格式
 项目内使用 `Clang Format` 来约束 C/C++/Objective-C 编码风格
 
