@@ -9,16 +9,61 @@
     - [命名原则](#命名原则)
         - [基本原则](#基本原则)
         - [使用前缀](#使用前缀)
-        - [命名类和协议（Class&Protocol）](#命名类和协议（class&protocol）)
-        - [命名头文件（Headers）](#命名头文件（headers）)
-        - [命名方法（Methods）](#命名方法（methods）)
-        - [存取方法（Accessor Methods）](#存取方法（accessor-methods）)
-        - [命名委托（Delegate）](#命名委托（delegate）)
-        - [集合操作类方法（Collection Methods）](#集合操作类方法（collection-methods）)
-        - [命名函数（Functions）](#命名函数（functions）)
-        - [命名属性和实例变量（Properties & Instance Variables）](#命名属性和实例变量（properties-&-instance-variables）)
-        - [命名常量（Constants）](#命名常量（constants）)
-        - [命名通知（Notifications）](#命名通知（Notifications）)
+        - [命名类和协议1. [Objective-C 编码规范及原则](#1-Objective-C-编码规范及原则)
+    - [代码格式](#-代码格式)
+        - [空行](#-空行)
+        - [ViewController.m 文件结构](#-ViewController.m-文件结构)
+    
+    - [命名原则](#-命名原则)
+        - [基本原则](#-基本原则)
+        - [使用前缀](#-使用前缀)
+        - [命名类和协议(Class&Protocol)](#-命名类和协议(Class&Protocol))
+        - [命名头文件(Headers)](#-命名头文件(Headers))
+        - [命名方法(Methods)](#-命名方法(Methods))
+        - [存取方法(Accessor Methods)](#-存取方法(Accessor Methods))
+        - [命名委托(Delegate)](#-命名委托(Delegate))
+        - [集合操作类方法(Collection Methods)](#-集合操作类方法(Collection Methods))
+        - [命名函数(Functions)](#-命名函数(Functions))
+        - [命名属性和实例变量(Properties & Instance Variables)](#-命名属性和实例变量(Properties & Instance Variables))
+        - [命名常量(Constants)](#-命名常量(Constants))
+        - [命名通知(Notifications)](#-命名通知(Notifications))
+    
+    - [注释](#-注释)
+        - [文件注释](#-文件注释)
+        - [方法注释](#-方法注释)
+        - [代码注释](#-代码注释)
+    
+    - [编码风格](#-编码风格)
+        - [不要使用new方法](#-不要使用new方法)
+        - [Public API 要尽量简洁](#-Public-API-要尽量简洁)
+        - [头文件引用](#-头文件引用)
+        - [BOOL的使用](#-BOOL的使用)
+        - [nil检查](#-nil检查)
+        - [点分语法的使用](#-点分语法的使用)
+        - [delegate要使用弱引用](#-delegate要使用弱引用)
+        - [使用 Literals](#-使用-Literals)
+        - [Switch Case](#-Switch Case)
+        - [?: 操作符](#-?:-操作符)
+        - [CGRect 方法](#-CGRect-方法)
+        - [Golden Path](#-Golden-Path)
+        - [处理 NSError](#-处理-NSError)
+        - [storyboard 使用](#-storyboard-使用)
+  
+2. [模块设计](#2-模块设计)
+    - [工程结构](#-工程结构)
+    - [设计模式](#-设计模式)
+        - [MVVM & MVC](#-MVVM-&-MVC)
+        - [delegate, block, KVO, NSNotification](#-delegate,-block,-KVO,-NSNotification)
+        - [模块化 & URL Route](#-模块化-&-URL-Route)Class&Protocol)](#命名类和协议(class&protocol))
+        - [命名头文件(Headers)](#命名头文件(headers))
+        - [命名方法(Methods)](#命名方法(methods))
+        - [存取方法(Accessor Methods)](#存取方法(accessor-methods))
+        - [命名委托(Delegate)](#命名委托(delegate))
+        - [集合操作类方法(Collection Methods)](#集合操作类方法(collection-methods))
+        - [命名函数(Functions)](#命名函数(functions))
+        - [命名属性和实例变量(Properties & Instance Variables)](#命名属性和实例变量(properties-&-instance-variables))
+        - [命名常量(Constants)](#命名常量(constants))
+        - [命名通知(Notifications)](#命名通知(Notifications))
     - [注释](#注释)
         - [文件注释](#文件注释)
         - [方法注释](#方法注释)
@@ -59,7 +104,7 @@ Clang Format 配置步骤(Xcode)：
 **排序**  
 包括`头文件引用`，`工程 group 排序`，无特殊说明时，按字母顺序排序。每次工程中添加新 group 时，需重新按字母排序。
 
-**特殊处理（注释，block)**  
+**特殊处理(注释，block)**  
 注释时统一在 `//` 后添加一个空格
 ```
 // Preferred:
@@ -257,11 +302,11 @@ displayName
 - 可以在为类、协议、函数、常量以及typedef宏命名的时候使用前缀，但注意不要为成员变量或者方法使用前缀，因为他们本身就包含在类的命名空间内。
 - 命名前缀的时候不要和苹果SDK框架冲突。
 
-项目的工程命名尽量不直接使用业务名称的拼音或者对应的英文名（业务在后续中可能会变化发展），例如旅游顾问项目的项目代号为 Mansinthe, 前缀为 MST。
+项目的工程命名尽量不直接使用业务名称的拼音或者对应的英文名(业务在后续中可能会变化发展)，例如旅游顾问项目的项目代号为 Mansinthe, 前缀为 MST。
 
 现有的基础类库从旅游顾问项目中拆分，仍以 `MST` 为前缀。
 
-#### 命名类和协议（Class&Protocol）
+#### 命名类和协议(Class&Protocol)
 
 类名以大写字母开头，应该包含一个*名词*来表示它代表的对象类型，同时可以加上必要的前缀，比如`NSString`, `NSDate`, `NSScanner`, `NSApplication`等等。
 
@@ -269,7 +314,7 @@ displayName
 
 有些协议本身包含了很多不相关的功能，主要用来为某一特定类服务，这时候可以直接用类名来命名这个协议，比如`NSObject`协议，它包含了id对象在生存周期内的一系列方法。
 
-#### 命名头文件（Headers）
+#### 命名头文件(Headers)
 
 源码的头文件名应该清晰地暗示它的功能和包含的内容：
 
@@ -281,11 +326,11 @@ displayName
 
 - Framework中有时候会实现在别的框架中类的类别扩展，这样的文件通常使用`被扩展的框架名`+`Additions`的方式来命名，比如`NSBundleAdditions.h`。
 
-#### 命名方法（Methods）
+#### 命名方法(Methods)
 
 Objective-C的方法名通常都比较长，这是为了让程序有更好地可读性，按苹果的说法*“好的方法名应当可以以一个句子的形式朗读出来”*。
 
-方法一般以小写字母打头，每一个后续的单词首字母大写，方法名中不应该有标点符号（*包括下划线*），有两个例外：
+方法一般以小写字母打头，每一个后续的单词首字母大写，方法名中不应该有标点符号(*包括下划线*)，有两个例外：
 
 - 可以用一些通用的大写字母缩写打头方法，比如`PDF`,`TIFF`等。
 - 可以用带下划线的前缀来命名私有方法或者 Category 中的方法。
@@ -325,7 +370,7 @@ Objective-C的方法名通常都比较长，这是为了让程序有更好地可
 - (id)taggedView:(int)aTag;
 ```
 
-不要用`and`来连接两个参数，通常`and`用来表示方法执行了两个相对独立的操作（*从设计上来说，这时候应该拆分成两个独立的方法*）：
+不要用`and`来连接两个参数，通常`and`用来表示方法执行了两个相对独立的操作(*从设计上来说，这时候应该拆分成两个独立的方法*)：
 
 ```objective-c
 // Not Preferred: 不要使用"and"来连接参数
@@ -362,7 +407,7 @@ Objective-C的方法名通常都比较长，这是为了让程序有更好地可
 ...title:(NSString *)aString
 ```
 
-#### 存取方法（Accessor Methods）
+#### 存取方法(Accessor Methods)
 
 存取方法是指用来获取和设置类属性值的方法，属性的不同类型，对应着不同的存取方法规范：
 
@@ -419,7 +464,7 @@ Objective-C的方法名通常都比较长，这是为了让程序有更好地可
 - (void)getLineDash:(float *)pattern count:(int *)count phase:(float *)phase;
 ```
 
-#### 命名委托（Delegate）
+#### 命名委托(Delegate)
 
 当特定的事件发生时，对象会触发它注册的委托方法。委托是Objective-C中常用的传递消息的方式。委托有它固定的命名范式。
 
@@ -442,7 +487,7 @@ Objective-C的方法名通常都比较长，这是为了让程序有更好地可
 - (BOOL)windowShouldClose:(id)sender;
 ```
 
-#### 集合操作类方法（Collection Methods）
+#### 集合操作类方法(Collection Methods)
 
 有些对象管理着一系列其它对象或者元素的集合，需要使用类似“增删查改”的方法来对集合进行操作，这些方法的命名范式一般为：
 
@@ -477,7 +522,7 @@ Objective-C的方法名通常都比较长，这是为了让程序有更好地可
 - (void)setParentWindow:(NSWindow *)window;
 ```
 
-#### 命名函数（Functions）
+#### 命名函数(Functions)
 
 在很多场合仍然需要用到函数，比如说如果一个对象是一个单例，那么应该使用函数来代替类方法执行相关操作。
 
@@ -512,7 +557,7 @@ const char *NSGetSizeAndAlignment(const char *typePtr, unsigned int *sizep, unsi
 BOOL NSDecimalIsNotANumber(const NSDecimal *decimal)
 ```
 
-#### 命名属性和实例变量（Properties & Instance Variables）
+#### 命名属性和实例变量(Properties & Instance Variables)
 
 属性和对象的存取方法相关联，属性的第一个字母小写，后续单词首字母大写，不必添加前缀。属性按功能命名成名词或者动词：
 
@@ -530,7 +575,7 @@ BOOL NSDecimalIsNotANumber(const NSDecimal *decimal)
 @property (assign, getter=isEditable) BOOL editable;
 ```
 
-命名实例变量，在变量名前加上`_`前缀（*有些有历史的代码会将`_`放在后面*），其它和命名属性一样：
+命名实例变量，在变量名前加上`_`前缀(*有些有历史的代码会将`_`放在后面*)，其它和命名属性一样：
 
 ```objective-c
 @implementation MyClass {
@@ -540,9 +585,9 @@ BOOL NSDecimalIsNotANumber(const NSDecimal *decimal)
 
 一般来说，类需要对使用者隐藏数据存储的细节，所以不要将实例方法定义成公共可访问的接口，可以使用`@private`，`@protected`前缀。
 
-#### 命名常量（Constants）
+#### 命名常量(Constants)
 
-如果要定义一组相关的常量，尽量使用枚举类型（enumerations），枚举类型的命名规则和函数的命名规则相同。
+如果要定义一组相关的常量，尽量使用枚举类型(enumerations)，枚举类型的命名规则和函数的命名规则相同。
 建议使用 `NS_ENUM` 和 `NS_OPTIONS` 宏来定义枚举类型，参见官方的 [Adopting Modern Objective-C](https://developer.apple.com/library/ios/releasenotes/ObjectiveC/ModernizationObjC/AdoptingModernObjective-C/AdoptingModernObjective-C.html) 一文：
 
 ```objective-c
@@ -581,11 +626,11 @@ const float NSLightGray;
 
 注意到一般由编译器定义的宏会在前后都有一个`__`，比如*`__MACH__`*。
 
-#### 命名通知（Notifications）
+#### 命名通知(Notifications)
 
 通知常用于在模块间传递消息，所以通知要尽可能地表示出发生的事件，通知的命名范式是：
 
-	[触发通知的类名] + [Did | Will] + [动作] + Notification
+    [触发通知的类名] + [Did | Will] + [动作] + Notification
 
 栗子：
 
@@ -598,7 +643,7 @@ NSColorPanelColorDidChangeNotification
 
 ### 注释
 
-好的代码应该是“自解释”（self-documenting）的，SDK 或公用的方法中，应使用注释来说明参数的意义、返回值、功能及副作用。其中参数的意义，如果能通过类型名称、 enum type 来说明的，尽量不通过注释额外说明。
+好的代码应该是“自解释”(self-documenting)的，SDK 或公用的方法中，应使用注释来说明参数的意义、返回值、功能及副作用。其中参数的意义，如果能通过类型名称、 enum type 来说明的，尽量不通过注释额外说明。
 
 #### 文件注释
 暂无要求，有注释时需保持格式统一，主要用于描述文件包含的内容、作用。
@@ -686,7 +731,7 @@ NSColorPanelColorDidChangeNotification
 `#import`是Cocoa中常用的引用头文件的方式，它能自动防止重复引用文件，什么时候使用`#import`，什么时候使用`#include`呢？
 
 - 当引用的是一个Objective-C或者Objective-C++的头文件时，使用`#import`
-- 当引用的是一个C或者C++的头文件时，使用`#include`，这时必须要保证被引用的文件提供了保护域（#define guard）。
+- 当引用的是一个C或者C++的头文件时，使用`#include`，这时必须要保证被引用的文件提供了保护域(#define guard)。
 
 头文件中尽量通过 `@class`, `@protocol` 预定义来减少头文件的引用，.m 文件中，头文件引用分成两组按字母排序，`<>`在前，`""`在后，如：
 
@@ -723,7 +768,7 @@ if (great)
   // ...be great!
 ```
 
-同样的，也不要将其它类型的值作为BOOL来返回，这种情况下，BOOL变量只会取值的最后一个字节来赋值，这样很可能会取到0（NO）。但是，一些逻辑操作符比如`&&`,`||`,`!`的返回是可以直接赋给BOOL的：
+同样的，也不要将其它类型的值作为BOOL来返回，这种情况下，BOOL变量只会取值的最后一个字节来赋值，这样很可能会取到0(NO)。但是，一些逻辑操作符比如`&&`,`||`,`!`的返回是可以直接赋给BOOL的：
 
 ```objective-c
 // 错误，不要将其它类型转化为BOOL返回
@@ -759,12 +804,12 @@ if (great)
 ```objective-c
 // 正确，直接判断
 if (!objc) {
-	...
+    ...
 }
 
 // 错误，不要使用nil == Object的形式
 if (nil == objc) {
-	...
+    ...
 }
 ```
 #### 点分语法的使用
