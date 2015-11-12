@@ -1,15 +1,7 @@
 # Objective-C 编码规范
 
 ## 目录
-1. [Objective-C 编码规范及原则](#1-objective-c-编码规范及原则)
-    - [代码格式](#代码格式)
-        - [空行](#空行)
-        - [ViewController.m 文件结构](#viewController.m-文件结构)
-
-    - [命名原则](#命名原则)
-        - [基本原则](#基本原则)
-        - [使用前缀](#使用前缀)
-        - [命名类和协议1. [Objective-C 编码规范及原则](#1-Objective-C-编码规范及原则)
+1. [Objective-C 编码规范及原则](#1-Objective-C-编码规范及原则)
     - [代码格式](#-代码格式)
         - [空行](#-空行)
         - [ViewController.m 文件结构](#-ViewController.m-文件结构)
