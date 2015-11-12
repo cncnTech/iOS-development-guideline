@@ -50,11 +50,11 @@ Clang Format 配置步骤(Xcode)：
 3. 将本文档同目录下的`.clang-format`文件放入新建工程的根目录下，命名为`.clang-format`
 4. 后续在 Xcode 保存该工程的代码文件时，会自动根据`.clang-format`来规范代码格式
 
-**排序**  
+**排序**   
 包括`头文件引用`，`工程 group 排序`，无特殊说明时，按字母顺序排序。每次工程中添加新 group 时，需重新按字母排序。
 
-**特殊处理(注释，block)**  
-注释时统一在 `//` 后添加一个空格
+#### 需要额外注意的事项
+clang-format 在部分格式上不支持强制在 `//` 后保留一个空格，需要在写代码时额外注意。
 ```
 // Preferred:
 // 这里是注释
@@ -89,7 +89,7 @@ MSTClientCompletionHandler handler = ^(NSInteger code, NSString *msg, id data) {
                                       }];
 ```
 
-**例外**  
+**例外**    
 在宏定义文件(eg. MSTMacro.h)中，需要的代码格式不同于其他文件，使用`clang-format off`来关闭 clang-format
 ```
 // clang-format off
