@@ -1,24 +1,23 @@
 # Objective-C 编码规范
 
-## 目录
-1. [Objective-C 编码规范及原则](#1-objective-c-编码规范及原则)
+# 目录
     - [代码格式](#代码格式)
         - [空行](#空行)
-        - [ViewController.m 文件结构](#viewcontrollerm-文件结构)
+        - [ViewController.m 文件结构](#viewcontroller.m-文件结构)
 
     - [命名原则](#命名原则)
         - [基本原则](#基本原则)
         - [使用前缀](#使用前缀)
-        - [命名类和协议(Class&Protocol)](#命名类和协议classprotocol)
-        - [命名头文件(Headers)](#命名头文件headers)
-        - [命名方法(Methods)](#命名方法methods)
-        - [存取方法(Accessor Methods)](#存取方法accessor-methods)
-        - [命名委托(Delegate)](#命名委托delegate)
-        - [集合操作类方法(Collection Methods)](#集合操作类方法collection-methods)
-        - [命名函数(Functions)](#命名函数functions)
-        - [命名属性和实例变量(Properties & Instance Variables)](#命名属性和实例变量properties--instance-variables)
-        - [命名常量(Constants)](#命名常量constants)
-        - [命名通知(Notifications)](#命名通知notifications)
+        - [命名类和协议(Class&Protocol)](#命名类和协议(class&protocol))
+        - [命名头文件(Headers)](#命名头文件(headers))
+        - [命名方法(Methods)](#命名方法(methods))
+        - [存取方法(Accessor Methods)](#存取方法(accessor-methods))
+        - [命名委托(Delegate)](#命名委托(delegate))
+        - [集合操作类方法(Collection Methods)](#集合操作类方法(collection-methods))
+        - [命名函数(Functions)](#命名函数(functions))
+        - [命名属性和实例变量(Properties & Instance Variables)](#命名属性和实例变量(properties-&-instance-variables))
+        - [命名常量(Constants)](#命名常量(constants))
+        - [命名通知(Notifications)](#命名通知(notifications))
 
     - [注释](#注释)
         - [文件注释](#文件注释)
@@ -35,30 +34,24 @@
         - [delegate要使用弱引用](#delegate要使用弱引用)
         - [使用 Literals](#使用-literals)
         - [Switch Case](#switch-case)
-        - [三目操作符](#三目操作符)
+        - [?: 操作符](#?:-操作符)
         - [CGRect 方法](#cgrect-方法)
         - [Golden Path](#golden-path)
         - [处理 NSError](#处理-nserror)
         - [storyboard 使用](#storyboard-使用)
 
-2. [模块设计](#2-模块设计)
-    - [工程结构](#工程结构)
-    - [设计模式](#设计模式)
-        - [MVVM & MVC](#mvvm--mvc)
-        - [delegate, block, KVO, NSNotification](#delegate-block-kvo-nsnotification)
-        - [模块化 & URL Route](#模块化--url-route)
 
 
-## 1. Objective-C 编码规范及原则
+# 1. Objective-C 编码规范及原则
 
-### 代码格式
+## 代码格式
 项目内使用 `Clang Format` 来约束 C/C++/Objective-C 编码风格
 
 Clang Format 配置步骤(Xcode)：  
-    1. Xcode 安装 `ClangFormat-Xcode` 插件(https://github.com/travisjeffery/ClangFormat-Xcode)  
-    2. 配置快捷键，`Xcode -> Edit -> Format Code`，勾选使用`File`使用根目录下的`.clang-format`作为约束文件，勾选`Enable Format on Save`  
-    3. 将本文档同目录下的`.clang-format`文件放入新建工程的根目录下，命名为`.clang-format`   
-    4. 后续在 Xcode 保存该工程的代码文件时，会自动根据`.clang-format`来规范代码格式  
+    1. Xcode 安装 `ClangFormat-Xcode` 插件(https://github.com/travisjeffery/ClangFormat-Xcode)
+    2. 配置快捷键，`Xcode -> Edit -> Format Code`，勾选使用`File`使用根目录下的`.clang-format`作为约束文件，勾选`Enable Format on Save`
+    3. 将本文档同目录下的`.clang-format`文件放入新建工程的根目录下，命名为`.clang-format`
+    4. 后续在 Xcode 保存该工程的代码文件时，会自动根据`.clang-format`来规范代码格式
 
 **排序**  
 包括`头文件引用`，`工程 group 排序`，无特殊说明时，按字母顺序排序。每次工程中添加新 group 时，需重新按字母排序。
@@ -109,7 +102,7 @@ MSTClientCompletionHandler handler = ^(NSInteger code, NSString *msg, id data) {
 // clang-format on
 ```
 
-#### 空行
+## 空行
 - #import 块前后保留一个空行
 - @interface 与 @protocol 间保留一个空行
 - 多个 @property 时，如果涉及不同区块、不同职能属性，可使用空行分隔成多组
@@ -146,7 +139,7 @@ MSTClientCompletionHandler handler = ^(NSInteger code, NSString *msg, id data) {
 ```
 
 
-#### ViewController.m 文件结构
+## ViewController.m 文件结构
 使用 #pragma mark 区分不同代码块，可引用(TODO:)，code snippet 来快速生成结构，一个典型的 ViewController.m 结构如下：
 ```objective-c
 ///--------------------------------------
@@ -196,8 +189,8 @@ MSTClientCompletionHandler handler = ^(NSInteger code, NSString *msg, id data) {
 ```
 
 
-### 命名原则
-#### 基本原则
+## 命名原则
+## 基本原则
 - 清晰
 
 命名应该尽可能的清晰和简洁，但在Objective-C中，清晰比简洁更重要。由于Xcode强大的自动补全功能，我们不必担心名称过长的问题。
@@ -253,7 +246,7 @@ displayName
 
 - 一致性
 
-#### 使用前缀
+## 使用前缀
 
 如果代码需要打包成Framework给别的工程使用，或者工程项目非常庞大，需要拆分成不同的模块，使用命名前缀是非常有用的。
 
@@ -265,7 +258,7 @@ displayName
 
 现有的基础类库从旅游顾问项目中拆分，仍以 `MST` 为前缀。
 
-#### 命名类和协议(Class&Protocol)
+## 命名类和协议(Class&Protocol)
 
 类名以大写字母开头，应该包含一个*名词*来表示它代表的对象类型，同时可以加上必要的前缀，比如`NSString`, `NSDate`, `NSScanner`, `NSApplication`等等。
 
@@ -273,7 +266,7 @@ displayName
 
 有些协议本身包含了很多不相关的功能，主要用来为某一特定类服务，这时候可以直接用类名来命名这个协议，比如`NSObject`协议，它包含了id对象在生存周期内的一系列方法。
 
-#### 命名头文件(Headers)
+## 命名头文件(Headers)
 
 源码的头文件名应该清晰地暗示它的功能和包含的内容：
 
@@ -285,7 +278,7 @@ displayName
 
 - Framework中有时候会实现在别的框架中类的类别扩展，这样的文件通常使用`被扩展的框架名`+`Additions`的方式来命名，比如`NSBundleAdditions.h`。
 
-#### 命名方法(Methods)
+## 命名方法(Methods)
 
 Objective-C的方法名通常都比较长，这是为了让程序有更好地可读性，按苹果的说法*“好的方法名应当可以以一个句子的形式朗读出来”*。
 
@@ -366,7 +359,7 @@ Objective-C的方法名通常都比较长，这是为了让程序有更好地可
 ...title:(NSString *)aString
 ```
 
-#### 存取方法(Accessor Methods)
+## 存取方法(Accessor Methods)
 
 存取方法是指用来获取和设置类属性值的方法，属性的不同类型，对应着不同的存取方法规范：
 
@@ -423,7 +416,7 @@ Objective-C的方法名通常都比较长，这是为了让程序有更好地可
 - (void)getLineDash:(float *)pattern count:(int *)count phase:(float *)phase;
 ```
 
-#### 命名委托(Delegate)
+## 命名委托(Delegate)
 
 当特定的事件发生时，对象会触发它注册的委托方法。委托是Objective-C中常用的传递消息的方式。委托有它固定的命名范式。
 
@@ -446,7 +439,7 @@ Objective-C的方法名通常都比较长，这是为了让程序有更好地可
 - (BOOL)windowShouldClose:(id)sender;
 ```
 
-#### 集合操作类方法(Collection Methods)
+## 集合操作类方法(Collection Methods)
 
 有些对象管理着一系列其它对象或者元素的集合，需要使用类似“增删查改”的方法来对集合进行操作，这些方法的命名范式一般为：
 
@@ -481,7 +474,7 @@ Objective-C的方法名通常都比较长，这是为了让程序有更好地可
 - (void)setParentWindow:(NSWindow *)window;
 ```
 
-#### 命名函数(Functions)
+## 命名函数(Functions)
 
 在很多场合仍然需要用到函数，比如说如果一个对象是一个单例，那么应该使用函数来代替类方法执行相关操作。
 
@@ -516,7 +509,7 @@ const char *NSGetSizeAndAlignment(const char *typePtr, unsigned int *sizep, unsi
 BOOL NSDecimalIsNotANumber(const NSDecimal *decimal)
 ```
 
-#### 命名属性和实例变量(Properties & Instance Variables)
+## 命名属性和实例变量(Properties & Instance Variables)
 
 属性和对象的存取方法相关联，属性的第一个字母小写，后续单词首字母大写，不必添加前缀。属性按功能命名成名词或者动词：
 
@@ -544,7 +537,7 @@ BOOL NSDecimalIsNotANumber(const NSDecimal *decimal)
 
 一般来说，类需要对使用者隐藏数据存储的细节，所以不要将实例方法定义成公共可访问的接口，可以使用`@private`，`@protected`前缀。
 
-#### 命名常量(Constants)
+## 命名常量(Constants)
 
 如果要定义一组相关的常量，尽量使用枚举类型(enumerations)，枚举类型的命名规则和函数的命名规则相同。
 建议使用 `NS_ENUM` 和 `NS_OPTIONS` 宏来定义枚举类型，参见官方的 [Adopting Modern Objective-C](https://developer.apple.com/library/ios/releasenotes/ObjectiveC/ModernizationObjC/AdoptingModernObjective-C/AdoptingModernObjective-C.html) 一文：
@@ -585,7 +578,7 @@ const float NSLightGray;
 
 注意到一般由编译器定义的宏会在前后都有一个`__`，比如*`__MACH__`*。
 
-#### 命名通知(Notifications)
+## 命名通知(Notifications)
 
 通知常用于在模块间传递消息，所以通知要尽可能地表示出发生的事件，通知的命名范式是：
 
@@ -600,14 +593,14 @@ NSTextViewDidChangeSelectionNotification
 NSColorPanelColorDidChangeNotification
 ```
 
-### 注释
+## 注释
 
 好的代码应该是“自解释”(self-documenting)的，SDK 或公用的方法中，应使用注释来说明参数的意义、返回值、功能及副作用。其中参数的意义，如果能通过类型名称、 enum type 来说明的，尽量不通过注释额外说明。
 
-#### 文件注释
+## 文件注释
 暂无要求，有注释时需保持格式统一，主要用于描述文件包含的内容、作用。
 
-#### 方法注释
+## 方法注释
 ，但仍然需要详细的注释来说明参数的意义、返回值、功能以及可能的副作用。
 
 方法、函数、类、协议、类别的定义都需要注释，推荐采用Apple的标准注释风格，好处是可以在引用的地方`alt+点击`自动弹出注释，非常方便。
@@ -669,23 +662,23 @@ NSColorPanelColorDidChangeNotification
 
 **一旦添加了注释，更改代码时需同步更新注释**。
 
-#### 代码注释
+## 代码注释
 
 **代码注释大多数情况下应用于解释为什么这么做，而不是解释做了什么。在需要解释做了什么的时候，考虑是否是变量命名不够合理，方法职责划分不够明确。**
 
 
 
-### 编码风格
+## 编码风格
 
-#### 不要使用new方法
+## 不要使用new方法
 
 尽管很多时候能用`new`代替`alloc init`方法，但这可能会导致调试内存时出现不可预料的问题。Cocoa的规范就是使用`alloc init`方法，使用`new`会让一些读者困惑。
 
-#### Public API 要尽量简洁
+## Public API 要尽量简洁
 
 共有接口要设计的简洁，满足核心的功能需求就可以了。不要设计很少会被用到，但是参数极其复杂的API。如果要定义复杂的方法，使用类别或者类扩展。
 
-#### 头文件引用
+## 头文件引用
 
 `#import`是Cocoa中常用的引用头文件的方式，它能自动防止重复引用文件，什么时候使用`#import`，什么时候使用`#include`呢？
 
@@ -711,7 +704,7 @@ NSColorPanelColorDidChangeNotification
 #import "MSTZone.h"
 ```
 
-#### BOOL的使用
+## BOOL的使用
 
 BOOL在Objective-C中被定义为`signed char`类型，这意味着一个BOOL类型的变量不仅仅可以表示`YES`(1)和`NO`(0)两个值，所以永远**不要**将BOOL类型变量直接和`YES`比较：
 
@@ -754,7 +747,7 @@ if (great)
 
 另外BOOL类型可以和`_Bool`,`bool`相互转化，但是**不能**和`Boolean`转化。
 
-#### nil检查
+## nil检查
 
 因为在Objective-C中向nil对象发送命令是不会抛出异常或者导致崩溃的，只是完全的“什么都不干”，所以，只在程序中使用nil来做逻辑上的检查。
 
@@ -771,7 +764,7 @@ if (nil == objc) {
     ...
 }
 ```
-#### 点分语法的使用
+## 点分语法的使用
 
 不要用点分语法来调用方法，只用来访问属性。这样是为了防止代码可读性问题。
 
@@ -786,7 +779,7 @@ NSUInteger numberOfItems = array.count;
 array.release;
 ```
 
-#### delegate要使用弱引用
+## delegate要使用弱引用
 
 一个类的Delegate对象通常还引用着类本身，这样很容易造成引用循环的问题，所以类的Delegate属性要设置为弱引用。
 
@@ -795,7 +788,7 @@ array.release;
 @property (nonatomic, weak) id <IPCConnectHandlerDelegate> delegate;
 ```
 
-#### 使用 Literals
+## 使用 Literals
 ```objective-c
 // Preferred:
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
@@ -810,7 +803,7 @@ NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 ```
 
-#### Switch Case
+## Switch Case
 
 当一个 case 包含多行时，添加{}。 如果使用枚举类型，无需添加 default:  
 
@@ -838,7 +831,7 @@ switch (condition) {
 }
 ```
 
-#### ?: 操作符
+## ?: 操作符
 ```objective-c
 // Preferred:
 
@@ -852,7 +845,7 @@ result = isHorizontal ? x : y;
 result = a > b ? x = c > d ? c : d : y;
 ```
 
-#### CGRect 方法
+## CGRect 方法
 访问一个 CGRect 的 `x`, `y`, `width`, `height` 时，尽量使用[CGGeometry functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)而不是直接访问。
 ```objective-c
 // Preferred:
@@ -875,7 +868,7 @@ CGFloat height = frame.size.height;
 CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 ```
 
-#### Golden Path
+## Golden Path
 When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path. That is, don't nest if statements. Multiple return statements are OK.
 
 ```objective-c
@@ -898,7 +891,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 }
 ```
 
-#### 处理 NSError
+## 处理 NSError
 ```objective-c
 // Preferred:
 NSError *error;
@@ -914,7 +907,7 @@ if (error) {
 }
 ```
 
-### storyboard 使用
+## storyboard 使用
 
 项目中尽量使用 storyboard，减少使用 xib，尽量不用代码创建视图。使用 storyboard 时，根据模块的复杂度，如果一个模块的视图较少，可以全部放到单一的 storyboard 中，如果较多，继续拆分。
 
@@ -937,56 +930,3 @@ if (error) {
     return self;
 }
 ```
-
-## 2. 模块设计
-### 工程结构
-工程的文件夹结构与工程内group结构基本保持一致。
-```
-+ Project
-    + Client                # 网络通讯模块代码目录
-    + CommonUI              # 工程内通用的视图组件代码，部分已放入 MSTUIKit 中，通过 cocoapods 引用。
-    + Configuration         # 工程视图、皮肤、AppKey 等
-    + Internal              # 基础组件，现基本已放入 MSTInternal 中，通过 cocoapods 引用。
-    + Modules               # 细分模块目录
-        + Module1
-            + Client            # (可选), 模块相关的网络请求相关处理放入这里
-            + Controller        # 存放视图控制器，ViewController 内不应包含数据逻辑、业务逻辑处理(放入ViewModel)
-            + Model             # 存放模块相关数据结构
-            + Store             # (可选), 当前模块有较重的独立存储逻辑处理时，可以单独出一个 Store 目录
-            + View              # 存放模块视图相关文件，包括.xib, .storyboard, View 文件
-            + ViewModel         # 存放模块相关业务逻辑文件
-        + Module2
-        ...
-
-    + Resource              # 资源目录
-        + Database              # 内置数据库文件目录
-        + Images                # 其他不放入 Images.xcassets 的图片文件
-        + Images.xcassets       # 图片资源文件
-
-    + Skeleton              # App 主骨架代码目录 (AppDelegate, RootViewController ...)
-    + Supporting Files      
-    + ThirdParty            # 存放未使用 cocoapods 管理的第三方类库，目前主要是国内第三方 SDK (crash, track, share, push)
-
-+ ProjectTests
-    + Modules               # 测试目录结构基本同 Projects 下，按不同模块划分, 但 Module 下不再细分不同目录
-
-- podfile                   # 主要使用 cocoapods 引用内部公共基础库、第三方库
-
-```
-
-### 设计模式
-
-#### MVVM & MVC
-各项目主体采用 MVVM 模式，不同于 MVC 的地方在于，将 ViewController 的职责再细分，将业务、数据逻辑代码放入 ViewModel 中，ViewController 基本只用于管理视图，对 ViewModel 的变化调整更新视图。
-```
-- Model         # 数据结构定义，同时处理部分轻逻辑
-- View          # 视图，仅负责视图的展示、刷新
-- ViewModel     # 负责数据的获取、存储、更新、处理，通知 Controller 数据变化
-- Controller    # 负责视图声明周期控制，ViewModel 变化时更新视图
-```
-
-#### delegate, block, KVO, NSNotification
-
-
-#### 模块化 & URL Route
-// TODO:
