@@ -128,18 +128,18 @@
 对某对象的值感兴趣时，可使用 KVO 进行消息传递。前提：1.接收者要知道发送者，2.接收者要知道发送者的生命周期，需要在发送者销毁前注销观察者身份。
 在使用 ReactiveCocoa 框架时，用信号通知取代 KVO 代码更简便。
 
-    Sender: NSOperation
-    Recipient: NSOperationQueue
-    Message: isExecuting isFinished isCancelled
+    Sender: NSOperation  
+    Recipient: NSOperationQueue  
+    Message: isExecuting isFinished isCancelled  
 
 
 - Notification
 
 通常用于在两个不相关的模块中传递消息，发送者、接收者不需要知道双方。
 
-    Sender: NSManagedObjectContext
-    Recipient: Unknown
-    Message: NSManagedObjectContextDidChangedNotificaion
+    Sender: NSManagedObjectContext  
+    Recipient: Unknown  
+    Message: NSManagedObjectContextDidChangedNotificaion  
 
 - Delegation & Block
 
@@ -149,15 +149,15 @@
     - delegation 更多面向过程，block 更多面向结果。如果需要一步步得到通知，使用 delegation；如果只是希望得到请求的信息（或错误），使用 block.
 
 
-    // delegation
-    Sender : UITableViewDelegate
-    Recipient: UITableView
-    Message: tableView:didSelectRowAtIndexPath:
+    // delegation  
+    Sender : UITableViewDelegate  
+    Recipient: UITableView  
+    Message: tableView:didSelectRowAtIndexPath:  
 
-    // block
-    Sender: NSURLSession
-    Recipient: Some Object
-    Message: completionHandler
+    // block  
+    Sender: NSURLSession  
+    Recipient: Some Object  
+    Message: completionHandler  
 
 - Target-Action
 
