@@ -70,7 +70,7 @@
 尽量使用 storyboard 来创建视图，通常按不同业务模块分成不同的 storyboard，如果模块内的视图多余三个，考虑再细分成子 storyboard。
 
 ### 设计样式管理
-一个项目内，一般根据设计规范可以定义项目公用的调色板，开发时大部分情况下直接根据设计规范里的约束[直接取调色板中的颜色](https://github.com/cncnTech/Objective-C-Coding-Guideline/blob/master/Screenshots/color_plettes_screenshot.png)，iOS 不同项目的调色板均放到了代码服务器上，[共享调色板](http://192.168.1.20/wireless/maccolorplettes)，本地的目录位于 `~/Library/Colors/` 下。
+一个项目内，一般根据设计规范可以定义项目公用的调色板，开发时大部分情况下直接根据设计规范里的约束![直接取调色板中的颜色](https://github.com/cncnTech/Objective-C-Coding-Guideline/blob/master/Screenshots/color_plettes_screenshot.png)，iOS 不同项目的调色板均放到了代码服务器上，[共享调色板](http://192.168.1.20/wireless/maccolorplettes)，本地的目录位于 `~/Library/Colors/` 下。
 
 // TODO: 补充其他公用设计样式管理方式
 
