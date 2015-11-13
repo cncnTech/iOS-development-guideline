@@ -137,7 +137,7 @@ MSTClientCompletionHandler handler = ^(NSInteger code, NSString *msg, id data) {
 
 
 ## ViewController.m 文件结构
-使用 #pragma mark 区分不同代码块，可引用(TODO:)，code snippet 来快速生成结构，一个典型的 ViewController.m 结构如下：
+使用 #pragma mark 区分不同代码块，可引用[Code Snippets For Xcode in cncn.com & cncn.net](https://github.com/EuanChan/CodeSnippets_MST)，code snippet 来快速生成结构，一个典型的 ViewController.m 结构如下：
 ```objective-c
 ///--------------------------------------
 #pragma mark - life cycle
