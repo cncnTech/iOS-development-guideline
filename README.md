@@ -1,6 +1,6 @@
 # Objective-C 编码规范
 
-**[iOS 工程规范实践](https://github.com/cncnTech/Objective-C-Coding-Guideline/blob/master/ios-good-practices.md)**
+**[iOS 工程开发实践](https://github.com/cncnTech/Objective-C-Coding-Guideline/blob/master/ios-project-practices.md)**
 
 # 目录
 1. [代码格式](#代码格式)
