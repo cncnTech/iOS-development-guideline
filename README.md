@@ -17,6 +17,7 @@
     - [命名属性和实例变量(Properties & Instance Variables)](#命名属性和实例变量(properties-&-instance-variables))
     - [命名常量(Constants)](#命名常量(constants))
     - [命名通知(Notifications)](#命名通知(notifications))
+    - [资源图片命名](#资源图片命名)
 3. [注释](#注释)
     - [文件注释](#文件注释)
     - [方法注释](#方法注释)
@@ -590,7 +591,36 @@ NSTextViewDidChangeSelectionNotification
 NSColorPanelColorDidChangeNotification
 ```
 
-## 注释
+## 资源图片命名
+
+资源图片原则上都要放入 Images.xcassets 管理，需保持文件名与 assets 内命名一致，一般习惯时在外部获得设计图后，根据规范修改设计图命名，然后拖入 image assets 对应的子文件夹下添加资源图。
+
+一般按以下规则在 assets 内新建不同的文件夹  
+
+- 通用、在不同模块间都会用到的一些公共资源，根据各自控件名创建目录，如 button, icon, navigationbar, tabbar 目录分别用于放置公用按钮、公用icon、导航栏、Tabbar资源图.
+- 根据不同的业务模块创建不同的图片资源目录，如 hotel, planeTicket 分别用于放置酒店业务模块、机票业务模块的资源图。
+
+图片命名规则：
+- 资源图片命名均使用小写和下划线，不使用驼峰命名。需保持文件名前缀与 image asset 命名一致。
+- 业务模块内的图片命名格式为 module_IMAGETYPE_name_STATE, 其中 IMAGETYPE 为 btn(button)/ic(icon)/bg(background), STATE 为 nl(normal), hl(highlight), da(disable)， STATE 可选，ie:
+```
+hotel_btn_locate_hl
+hotel_detail_bg_room_default
+hotel_ic_facility_wifi
+```
+- 公用控件内图片命名格式一般为 control_name_state，ie:
+```
+navigationbar_back_icon_hl
+navigationbar_back_btn_bg_hl
+
+btn_common_green_nl
+btn_common_green_hl
+
+tabbar_ic_discovery_nl
+tabbar_ic_discovery_hl
+```
+
+# 注释
 
 好的代码应该是“自解释”(self-documenting)的，SDK 或公用的方法中，应使用注释来说明参数的意义、返回值、功能及副作用。其中参数的意义，如果能通过类型名称、 enum type 来说明的，尽量不通过注释额外说明。
 
