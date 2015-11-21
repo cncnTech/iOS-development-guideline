@@ -27,6 +27,35 @@
 - 当新分支上的代码已经完成，或者需要与其他人协作时，可创建 pull request 请求 develop 分支进行合并（这步暂省略为直接请求项目主负责人主动将 feature 的代码合并回 develop）
 - 为每个发布版本打 tag 版本号。
 
+#### git commit 规范
+
+git commit 的主要作用：
+
+- 团队成员通过阅读 commit log 能快速找到代码的修改记录
+- 排查 bug 使用引入点查找法时，通过二分查找能快速定位（需要小粒度的 commit ）
+- 通过搜索 commit log 查找历史记录进行代码定位
+- 每个 commit 相对独立后，方便针对单一 commit 做代码回滚操作
+
+commit 基本原则：
+
+保持每个 commit 内容尽量独立，以撰写的 commit comment 能概括此次提交内容为准，如果 commit comment 涉及到不同的模块，就该考虑拆分为不同的 commit 进行提交。
+
+暂列以下 commit 规则
+- bug 修复的 commit 做单独提交，不要与其他代码修改的 commit 混在一起
+- reactoring 代码尽量保持功能上无变动，如重构中发现 bug，推荐标记 bug 位置并保留，等重构完成做 bug 修复的单独处理
+- 第三方库的更新与其他 commit 分开，如涉及到第三库 api 变更需要同时变更调用代码，可在代码中标明。
+
+添加到 index 区前，请检查要添加的内容，不要将无意义的修改添加到当次 commit 中。无实际功能修改的 commit 做单独提交，包含代码风格调整，无实际功能变更、bug 修复的重构，项目内习惯标记为[refactoring]。
+
+约定以下 commit comment 前缀
+
+- [add] 一般用于添加新功能、业务需求增加对应的代码修改
+- [fix] 一般用于 bug 修正，如项目有对应的 bug 跟踪工具，一般加上 bug 对应的编号。 eg. [fix] 修正已注册用户提交注册信息提示信息错误的bug [bugtag:123]
+- [remove] 用于移除文件、删除代码
+- [refactoring] 代码风格调整，无功能修改的重构（包含 bug 修改的重构尽量分两次，先[fix]，后[refactoring]。
+- [update] 一般用于第三方库的更新
+
+
 **gitignore**  
 在项目根目录页放置项目通用的 .gitignore 文件，用于忽略无需进行版本管理的文件。现因为基本上每个工程要忽略的文件类型一致，直接在每台开发机器上自己设定全局的 .gitignore 文件。配置可参考[gitignore.io](https://www.gitignore.io/)
 
