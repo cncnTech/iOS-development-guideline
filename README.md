@@ -109,6 +109,7 @@ MSTClientCompletionHandler handler = ^(NSInteger code, NSString *msg, id data) {
 - .m 文件中 @interface 与 @implementation 使用两个空行隔开
 - 方法间使用一个空行分隔
 - @end 之后保留一个空行
+- 方法内部空行一般用于分隔两个相对独立的代码区块，不要随意添加无意义的空行
 
 ```objective-c
 // Preferred:
