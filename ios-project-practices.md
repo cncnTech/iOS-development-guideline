@@ -12,8 +12,8 @@
 2. [模块设计概要](#2-模块设计概要)
     - [工程结构](#工程结构)
     - [MVVM & MVC](#mvvm--mvc)
-    - [KVO, Notification, Delegation, Block, Target-Action](#kvo-notification-delegation-block-target-action)
-    - [模块化 & URL Route](#模块化-&-url-route)
+    - [KVO, Notification, Delegation, Block, Target-Action](#kvo--nsnotification--delegation--block--target-action)
+    - [模块化 & URL Route](#模块化--url-route)
 
 # 1. 工程配置
 
