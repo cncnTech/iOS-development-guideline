@@ -3,6 +3,8 @@
 # 目录
 1. [工程配置](#1-工程配置)
     - [Git 工作流程](#git-工作流程)
+        - [Git commit 规范](#git-commit-规范)
+        - 
     - [工程版本管理](#工程版本管理)
     - [工程 Targets 管理](#工程-targets-管理)
     - [Cocoapods](#cocoapods)
@@ -36,7 +38,7 @@ git commit 的主要作用：
 - 通过搜索 commit log 查找历史记录进行代码定位
 - 每个 commit 相对独立后，方便针对单一 commit 做代码回滚操作
 
-**git commit 规范**
+**git commit 规约**
 - 通过 .gitignore 配置文件忽略工程无关的文件，不要将不需要版本管理的文件添加到 git 仓库中 
 - bug 修复的 commit 做单独提交，不要与其他代码修改的 commit 混在一起
 - reactoring 代码尽量保持功能上无变动，如重构中发现 bug，推荐标记 bug 位置并保留，等重构完成做 bug 修复的单独处理
@@ -49,7 +51,6 @@ git commit 的主要作用：
     - [remove] 用于移除文件、删除代码
     - [refactoring] 代码风格调整，无功能修改的重构（包含 bug 修改的重构尽量分两次，先[fix]，后[refactoring]。
     - [update] 一般用于第三方库的更新
-
 
 **gitignore**  
 在项目根目录页放置项目通用的 .gitignore 文件，用于忽略无需进行版本管理的文件。现因为基本上每个工程要忽略的文件类型一致，直接在每台开发机器上自己设定全局的 .gitignore 文件。配置可参考[gitignore.io](https://www.gitignore.io/)
