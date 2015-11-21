@@ -40,7 +40,7 @@ git commit 的主要作用：
 - 通过 .gitignore 配置文件忽略工程无关的文件，不要将不需要版本管理的文件添加到 git 仓库中 
 - bug 修复的 commit 做单独提交，不要与其他代码修改的 commit 混在一起
 - reactoring 代码尽量保持功能上无变动，如重构中发现 bug，推荐标记 bug 位置并保留，等重构完成做 bug 修复的单独处理
-- 第三方库的更新与其他 commit 分开，如涉及到第三库 api 变更需要同时变更调用代码，可在代码中标明
+- 第三方库的更新与其他 commit 分开，如涉及到第三库 api 变更需要同时变更调用代码，可在日志中标明，紧跟着做一次调用代码变更 commit
 - 保持每个 commit 内容尽量独立，以撰写的 commit comment 能概括此次提交内容为准，如果 commit comment 涉及到不同的模块，考虑拆分为不同的 commit 进行提交。
 - git add 前，请检查要添加的内容，不要将无意义的修改添加到当次 commit 中。
 - 约定以下 commit comment 前缀
