@@ -4,7 +4,6 @@
 1. [工程配置](#1-工程配置)
     - [Git 工作流程](#git-工作流程)
         - [Git commit 规范](#git-commit-规范)
-        - 
     - [工程版本管理](#工程版本管理)
     - [工程 Targets 管理](#工程-targets-管理)
     - [Cocoapods](#cocoapods)
