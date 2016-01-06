@@ -36,20 +36,41 @@ git commit 的主要作用：
 - 排查 bug 使用引入点查找法时，通过二分查找能快速定位（需要小粒度的 commit ）
 - 通过搜索 commit log 查找历史记录进行代码定位
 - 每个 commit 相对独立后，方便针对单一 commit 做代码回滚操作
+- 格式化后方便过滤某些commit，如文档改动
 
 **git commit 规约**
+- 每条 commit message 包含三部分：Header, Body, Footer
+    ```
+    <type>(<scope>): <subject>
+    // 空一行
+    <body>
+    // 空一行
+    <footer>
+    ```
+    其中 Header 是必需的，Body 和 Footer 可以省略。
+    **type** 可使用的标识
+    - [feat]：新功能（feature）
+    - [fix]：修补bug
+    - [remove]：代码移除、文件移除时使用
+    - [docs]：文档（documentation）
+    - [style]：格式（不影响代码运行的变动）
+    - [refactor]：重构（即不是新增功能，也不是修改bug的代码变动），包含 bug 修改的重构尽量分两次commit，先[fix]，再[refactor]
+    - [test]：增加测试
+    - [perf]: 性能提升改动
+    - [chore]：构建过程或辅助工具的变动，包含第三方库更新
+    
+    **scope**用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。
+    **body**对本次 commit 的详细描述，可以分成多行
+    **footer** 一般只用于 1.不兼容变动（以**BREAKING CHANGE**开头)，2.关闭issue（以 Closes #1133 开头）
+    
+    如果当前 commit 用于撤销以前的 commit，则必须以**revert:**开头。生成 change log 时，关联的两条提交不会出现在里面。
+
 - 通过 .gitignore 配置文件忽略工程无关的文件，不要将不需要版本管理的文件添加到 git 仓库中 
 - bug 修复的 commit 做单独提交，不要与其他代码修改的 commit 混在一起
-- reactoring 代码尽量保持功能上无变动，如重构中发现 bug，推荐标记 bug 位置并保留，等重构完成做 bug 修复的单独处理
+- 重构代码保持功能上无变动，如重构中发现 bug，推荐标记 bug 位置并保留，等重构完成做 bug 修复的单独处理
 - 第三方库的更新与其他 commit 分开，如涉及到第三库 api 变更需要同时变更调用代码，可在日志中标明，紧跟着做一次调用代码变更 commit
-- 保持每个 commit 内容尽量独立，以撰写的 commit comment 能概括此次提交内容为准，如果 commit comment 涉及到不同的模块，考虑拆分为不同的 commit 进行提交。
+- 保持每个 commit 内容尽量独立，以撰写的 commit message 能概括此次提交内容为准，如果 commit message 涉及到不同的模块，考虑拆分为不同的 commit 进行提交。
 - git add 前，请检查要添加的内容，不要将无意义的修改添加到当次 commit 中。
-- 约定以下 commit comment 前缀
-    - [add] 一般用于添加新功能、业务需求增加对应的代码修改
-    - [fix] 一般用于 bug 修正，如项目有对应的 bug 跟踪工具，一般加上 bug 对应的编号。 eg. [fix] 修正已注册用户提交注册信息提示信息错误的bug [bugtag:123]
-    - [remove] 用于移除文件、删除代码
-    - [refactoring] 代码风格调整，无功能修改的重构（包含 bug 修改的重构尽量分两次，先[fix]，后[refactoring]。
-    - [update] 一般用于第三方库的更新
 
 **gitignore**  
 在项目根目录页放置项目通用的 .gitignore 文件，用于忽略无需进行版本管理的文件。现因为基本上每个工程要忽略的文件类型一致，直接在每台开发机器上自己设定全局的 .gitignore 文件。配置可参考[gitignore.io](https://www.gitignore.io/)
