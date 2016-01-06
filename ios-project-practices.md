@@ -38,7 +38,7 @@ git commit 的主要作用：
 - 每个 commit 相对独立后，方便针对单一 commit 做代码回滚操作
 - 格式化后方便过滤某些commit，如文档改动
 
-**git commit 规约**
+**git commit message 规约**[参考资料](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 - 每条 commit message 包含三部分：Header, Body, Footer
     ```
     <type>(<scope>): <subject>
