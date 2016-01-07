@@ -57,10 +57,12 @@ git commit 的主要作用：
     - [refactor]：重构（即不是新增功能，也不是修改bug的代码变动），包含 bug 修改的重构尽量分两次commit，先[fix]，再[refactor]
     - [test]：增加测试
     - [perf]: 性能提升改动
-    - [chore]：构建过程或辅助工具的变动，包含第三方库更新
+    - [chore]：构建过程或辅助工具的变动，包含第三方库更新（无功能变动时，有功能变动按前面的 type ）
     
     **scope**用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。
+    
     **body**对本次 commit 的详细描述，可以分成多行
+    
     **footer** 一般只用于 1.不兼容变动（以**BREAKING CHANGE**开头)，2.关闭issue（以 Closes #1133 开头）
     
     如果当前 commit 用于撤销以前的 commit，则必须以**revert:**开头。生成 change log 时，关联的两条提交不会出现在里面。
