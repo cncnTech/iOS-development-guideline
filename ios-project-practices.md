@@ -50,6 +50,7 @@ git commit 的主要作用：
     其中 Header 是必需的，Body 和 Footer 可以省略。
     **type** 可使用的标识
     - [feat]：新功能（feature）
+    - [ui]: 界面样式变动（不涉及结构调整时使用）
     - [fix]：修补bug
     - [remove]：代码移除、文件移除时使用
     - [docs]：文档（documentation）
