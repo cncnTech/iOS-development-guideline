@@ -55,7 +55,7 @@ fi
 
 # Bundle version (commits-on-master[-until-branch "." commits-on-branch])
 # Assumes that two release branches will not diverge from the same commit on master.
-if [ $(git rev-parse --abbrev-ref HEAD) = "master" ]; then
+if [ $(git rev-parse --abbrev-ref HEAD) = "$(git rev-parse --abbrev-ref HEAD)" ]; then
     MASTER_COMMIT_COUNT=$(git rev-list --count HEAD)
     BRANCH_COMMIT_COUNT=0
     BUNDLE_VERSION="$MASTER_COMMIT_COUNT"
