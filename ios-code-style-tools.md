@@ -11,7 +11,8 @@ brew install clang-format
 ### 1. 借助 clang-format 主动规范当前文件的代码风格
 **设置指南:**   
 - 将 [.clang-format](./.clang-format) 文件放到 iOS 工程根目录下;  
-- 将 [clang-format-for-xcode-behaviors.sh](./clang-format-for-xcode-behaviors.sh) 文件放到一个固定的目录下，注意开启执行权限
+- 将 [clang-format-for-xcode-behaviors.sh](./clang-format-for-xcode-behaviors.sh) 文件放到一个固定的目录下，注意开启执行权限  
+
 打开 Xcode，菜单选择 "Xcode"-"Behaviors"-"Edit Behaviors", 打开 `Behaviors` 编辑窗口
 ![](http://oadzxd0gg.bkt.clouddn.com/1483001315.png)
 
@@ -20,7 +21,7 @@ brew install clang-format
 
 ### 2. 借助 git precommit 在 git commit 时强制检查代码风格
 **设置指南:**
-- 将 [pre-commit](./pre-commit) 文件放到 iOS 项目下的 `.git/hooks` 目录，注意确认是否有执行权限
+- 将 [pre-commit](./pre-commit) 文件放到 iOS 项目下的 `.git/hooks` 目录，注意确认是否有执行权限  
 
 每次 `git commit` 的时候，会触发根据 `.clang-format` 的约束检查代码风格，如果风格不符合，会 commit 失败。  
 
